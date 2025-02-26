@@ -2,7 +2,7 @@
 
 
  .button {
-  background-color: $color-neutral-light;
+  background-color: $color-neutral-bright;
   color: $color-neutral-darkest;
   font-weight: bold;
   border: none;
@@ -22,19 +22,19 @@
 }
 
 .button:disabled {
-  background-color: $color-neutral-light;
+  background-color: $color-neutral-bright;
   color: $color-neutral;
   box-shadow: none;
   opacity: 1;
 }
 
 .button_primary {
-  background-color: $color-primary;
+  background-color: $color-neutral-bright;
   color: $color-neutral-lightest;
 }
 
 .button_secondary {
-  background-color: $color-secondary;
+  background-color: $color-neutral-bright;
   color: $color-neutral-lightest;
 }
 

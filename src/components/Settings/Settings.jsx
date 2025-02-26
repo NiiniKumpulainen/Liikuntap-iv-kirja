@@ -1,37 +1,18 @@
 import styles from './Settings.module.scss'
 import Button from '../../shared/buttons'
-import { signOut } from 'firebase/auth'
 
 function Settings(props) {
 
   const handleTypeSubmit = (event) => {
     event.preventDefault()
     const newtype = event.target.elements.type.value
-         props.onTypeSubmit(newtype)
+    props.onTypeSubmit(newtype)
     event.target.elements.type.value = ''
   }
-
-  const logout = () => {
-    signOut(props.auth)
-  }
-
   return (
     <div className={styles.settings}>
       <h2>Asetukset</h2>
-
-      <h3>Profiili</h3>
-      <div className={styles.settings_profile}>
-        <div className={styles.settings_user}>
-          <div><img src={props.user.photoURL} /></div>
-          <div>{props.user.displayName}<br />
-               {props.user.email}</div>
-        </div>
-        <div>
-          <Button primary onClick={logout}>Kirjaudu ulos</Button>
-        </div>
-      </div>
-
-      <h3>Kulutyypit</h3>
+      <h3>Valisema urheilu</h3>
       <div className={styles.settings_types}>
         { props.typelist.map(
             type => <div key={type}>{type}</div>
@@ -45,5 +26,7 @@ function Settings(props) {
       </div>
     </div>
   )
+
+  
 }
 export default Settings

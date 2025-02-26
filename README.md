@@ -1,10 +1,10 @@
-# Taloudenhallinta
+# Liikuntapäiväkirja
 
-Harjoitustyönä toteutettu React-projekti, jolla voi kirjata ja seurata omia menoja.
+Näyttö työnä toteutettu React-projekti, jolla voi kirjata ja seurata omia liikunta kirjauksia.
 
 ## Kuvaruutukopiot
 
-![Pääsivu](/screenshot1.png?raw=true)
+![Pääsivu](/kuva1.png?raw=true)
 
 ## Tekniikat
 

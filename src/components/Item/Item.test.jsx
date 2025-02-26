@@ -1,36 +1,50 @@
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import Item from './Item.jsx'
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import Item from './Item';
 
-describe('Item', () => {
-  test('Komponentti renderöityy merkinnän tiedoilla', () => {
-    // Määritellään merkinnän tiedot.
-    const data = {
-      id:          "1",
-      type:        "Sähkö",
-      amount:      437.50,
-      paymentDate: "2023-03-20",
-      periodStart: "2022-12-01",
-      periodEnd:   "2023-02-28",
-      receiver:    "Caruna Oy"      
-    }
-    render(<Item data={data} />, {wrapper: BrowserRouter})
-    
-    // Määritetään lokaaliasetukset.
-    const locale = "fi-FI"
-  
-    // Tyyppi
-    const typeElement = screen.getByText(data.type)
-    expect(typeElement).toBeInTheDocument()
+describe('Item component', () => {
+  const mockData = {
+    id: '123',
+    type: 'Juoksu',
+    amount: 60,
+    date: '2024-01-25T12:00:00.000Z',
+    length: '5 km',
+  };
 
-    // Maksupäivä
-    const paymentDate = new Date(data.paymentDate).toLocaleDateString(locale)
-    const dateElement = screen.getByText(paymentDate)
-    expect(dateElement).toBeInTheDocument() 
+  it('renders item data correctly', () => {
+    render(
+      <MemoryRouter>
+        <Item data={mockData} />
+      </MemoryRouter>
+    );
 
-    // Saaja
-    const receiverElement = screen.getByText(data.receiver)
-    expect(receiverElement).toBeInTheDocument()
+    expect(screen.getByText('Juoksu')).toBeInTheDocument();
+    expect(screen.getByText('60 min, liikuntaa suoritettu!')).toBeInTheDocument();
+    expect(screen.getByText('25.1.2024')).toBeInTheDocument();
+    expect(screen.getByText('5 km')).toBeInTheDocument();
+  });
 
-  })
-})
+  it('renders link to edit page', () => {
+    render(
+      <MemoryRouter>
+        <Item data={mockData} />
+      </MemoryRouter>
+    );
+
+    const link = screen.getByRole('link');
+    expect(link).toHaveAttribute('href', '/edit/123');
+  });
+
+  it('renders "liikunta suoritettu!" when amount is not provided', () => {
+    const dataWithoutAmount = { ...mockData, amount: null };
+
+    render(
+      <MemoryRouter>
+        <Item data={dataWithoutAmount} />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('liikunta suoritettu!')).toBeInTheDocument();
+  });
+});
