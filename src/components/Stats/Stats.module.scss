@@ -1,5 +1,42 @@
-.tilasto-kaavio { /* Korvaa .tilasto-kaavio oikealla selektorilla */
-    fill: #800080; /* Lila väri SVG-kaaviossa */
-    /* tai */
-    background-color: #800080; /* Lila väri muussa elementissä */
-  }
+@import '../../assets/styles/_config.scss';
+
+.stats {
+  padding: $container-padding;
+  text-align: center; /* Lisätty keskittämään otsikot */
+}
+
+.stats h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+  color: #333; /* Lisätty tummempi tekstiväri */
+}
+
+.tilasto-kaavio {
+  fill: #800080; /* Lila täyttöväri */
+  stroke: #800080; /* Lila reunaviiva */
+  stroke-width: 1; /* Reunaviivan paksuus */
+}
+
+/* Lisätty pylväskaavion tyylit */
+.pylvas-kaavio {
+  width: 100%; /* Kaavion leveys */
+  height: 300px; /* Kaavion korkeus */
+  margin-top: 2rem; /* Ylämarginaali */
+}
+
+.pylvas {
+  fill: #800080; /* Pylväiden väri */
+}
+
+.pylvas-teksti {
+  font-size: 0.8rem; /* Tekstin koko */
+  fill: #333; /* Tekstin väri */
+  text-anchor: middle; /* Tekstin kohdistus */
+}
+
+/* Lisätty kokonaismäärän tyylit */
+.kokonaismaara {
+  margin-top: 1rem; /* Ylämarginaali */
+  font-weight: bold; /* Lihavoitu teksti */
+}
