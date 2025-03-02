@@ -9,12 +9,12 @@
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
   font-size: 1.2rem;
-  color: #333; /* Lisätty tummempi tekstiväri */
+  color: $color-neutral-darker; /* Lisätty tummempi tekstiväri */
 }
 
 .tilasto-kaavio {
-  fill: #800080; /* Lila täyttöväri */
-  stroke: #800080; /* Lila reunaviiva */
+  fill: $color-bright; /* Lila täyttöväri */
+  stroke: $color-bright; /* Lila reunaviiva */
   stroke-width: 1; /* Reunaviivan paksuus */
 }
 
@@ -26,12 +26,12 @@
 }
 
 .pylvas {
-  fill: #800080; /* Pylväiden väri */
+  fill: $color-bright; /* Pylväiden väri */
 }
 
 .pylvas-teksti {
   font-size: 0.8rem; /* Tekstin koko */
-  fill: #333; /* Tekstin väri */
+  fill: $color-neutral-darker; /* Tekstin väri */
   text-anchor: middle; /* Tekstin kohdistus */
 }
 
